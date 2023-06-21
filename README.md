@@ -5,7 +5,7 @@
  Descripntion   : It's Free & Instant Current Weather Information app.
  Author         : Md. Rafiqul Islsm 
  Author URI     : https://rafiqulislam.xyz/
- Published Date : 21.03.2023
+ Published Date : 21.06.2023
  Version        : 1.1
 */
 
