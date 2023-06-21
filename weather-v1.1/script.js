@@ -16,13 +16,14 @@ function getWeatherData(){
     .then((data)=>{
 
         const location = data.name
+        const country = data.sys.country
         const temp = data.main.temp -273.15 // Kelvin to celcials
         const humidity = data.main.humidity
         const wind = data.wind.speed
         const description = data.weather[0].description
         
-        //console.log(location,temp,humidity,wind)
         document.getElementById('city').textContent = location
+        document.getElementById('country').innerHTML = `Country: ${country}`
         document.getElementById('temp').innerHTML = `${Math.round(temp)}&degC`  
         document.getElementById('humidity').innerHTML = `${humidity}%`
         document.getElementById('wind').innerHTML = `${wind} km/h`
