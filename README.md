@@ -1,1 +1,24 @@
 # github-ostad-assignment-submit
+ /*
+ Allication Name: Current Weather Information.
+ Application URI: https://github.com/openjanala/github-ostad-assignment-submit/tree/main/weather-v1.1
+ Descripntion   : It's Free & Instant Current Weather Information app.
+ Author         : Md. Rafiqul Islsm 
+ Author URI     : https://rafiqulislam.xyz/
+ Published Date : 21.03.2023
+ Version        : 1.1
+*/
+
+Uses Interface (Frontend):
+1. HTML
+2. CSS
+3. Bootstrap 
+4. Javascript
+
+Live Server: 
+https://weather.rafiqulislam.xyz/
+
+Github Link: 
+https://github.com/openjanala/github-ostad-assignment-submit/tree/main/weather-v1.1
+
+
