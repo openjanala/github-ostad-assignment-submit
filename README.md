@@ -1,5 +1,4 @@
-Documentation File
- 
+# github-ostad-assignment-submit
  /*
  Allication Name: Current Weather Information.
  Application URI: https://github.com/openjanala/github-ostad-assignment-submit/tree/main/weather-v1.1
