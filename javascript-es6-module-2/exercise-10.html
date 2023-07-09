@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10</title>
+</head>
+<body>
+
+ <script>
+/*
+Write a function named sumArray that takes in an array of numbers and returns the sum of all the numbers using the array reduce method.
+
+Input:
+sumArray([1, 2, 3, 4, 5]);
+
+Output:
+15
+*/
+
+//Numbers Array
+const numbers = [1, 2, 3, 4, 5]
+
+// Sum All Numbers
+ function sumArray(){
+    const sum = numbers.reduce((oldNum, newNum) => oldNum + newNum, 0)
+    return sum
+}
+document.write(sumArray())
+console.log(sumArray())
+
+// Output: 15
+
+ </script>
+    
+</body>
+</html>
