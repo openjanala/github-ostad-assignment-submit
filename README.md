@@ -9,8 +9,7 @@
  Version         : 1.0.1
 */
 
-Assignment No: 4 
-Uses Interface (Frontend):
+Assignment No: 4 - Carousel Image Slider
 1. HTML
 2. CSS
 3. Bootstrap 
