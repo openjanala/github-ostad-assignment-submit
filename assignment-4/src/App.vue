@@ -1,12 +1,10 @@
 <script setup>
-import CarouselItems from "./components/CarouselItems.vue";
+import CarouselItems from './components/CarouselItems.vue'
 </script>
 
 <template>
-  <div>
-    <!-- For Carousel Images -->
-    <CarouselItems />
-  </div>
+  <CarouselItems/>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

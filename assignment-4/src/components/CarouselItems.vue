@@ -1,190 +1,101 @@
 <script setup>
-import { ref } from "vue";
-const images = [
-  {
-    id: 1,
-    image: "images/1.jpg",
-    title: "First slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-  {
-    id: 2,
-    image: "images/2.jpg",
-    title: "Second slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-  {
-    id: 3,
-    image: "images/3.jpg",
-    title: "Third slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-  {
-    id: 3,
-    image: "images/4.jpg",
-    title: "Third slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-  {
-    id: 3,
-    image: "images/5.jpg",
-    title: "Third slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-  {
-    id: 3,
-    image: "images/6.jpg",
-    title: "Third slide label",
-    description: "Some representative placeholder content for the first slide.",
-  },
-];
+  import {ref, reactive, onMounted, onUnmounted} from 'vue'
 
-const currentIndex = ref(0);
+  const activeIndex = ref(0)
 
-const imagesLength = images.length;
+  const carouselItems = [
+    {
+      image: 'images/1.jpg',
+      title: 'First Slide Label',
+      description: 'Nulla vitae elit libero, a pharetra augue mollis interdum. Nulla vitae elit libero, a pharetra augue'
+    },
+    {
+      image: 'images/2.jpg',
+      title: 'Second Slide Label',
+      description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    },
+    {
+      image: 'images/3.jpg',
+      title: 'Third Slide Label',
+      description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    },
+    {
+      image: 'images/4.jpg',
+      title: 'Forth Slide Label',
+      description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    },
+    {
+      image: 'images/5.jpg',
+      title: 'Fifth Slide Label',
+      description: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
+    }
+  ]
 
+  const imageFilter = '-webkit-filter: grayscale(100%);filter: grayscale(100%);'
 
-const swithchSlider = (targer) => {
-  if ("next" == targer) {
-    currentIndex.value =
-      imagesLength - 1 > currentIndex.value ? currentIndex.value + 1 : 0;
-  } else {
-    currentIndex.value =
-      currentIndex.value > 0 ? currentIndex.value - 1 : imagesLength - 1;
+  const incrementActiveIndex = () =>{
+    if(activeIndex.value == carouselItems.length -1){
+      activeIndex.value = 0
+    }
+    else{
+      activeIndex.value++
+    }
   }
-};
 
-// const nextImage = () => {
-//   currentIndex.value = (currentIndex.value + 1) % imagesLength;
-// };
+  const timeId = null;
 
-// const prevImage = () => {
-//   currentIndex.value = (currentIndex.value - 1 + imagesLength) % images.length;
-// };
+  const startSlides = function(){
+    timeId = setInterval(incrementActiveIndex, 8000)
+  }
 
-const switchChange = (index) => {
-  currentIndex.value = index;
-};
+  const stopSlides = function(){
+    clearInterval(timeId)
+  }
+ 
+  onMounted(() => {
+    startSlides()
+  })
+
+  onUnmounted(() =>{
+    stopSlides()
+  })
 </script>
 
 <template>
-  <div>
-    <h1 class="text-white-900 mb-10">Assignment - 4 for Carousel Image</h1>
+  <h3><strong>Assignment-4 (Image Carousel)</strong></h3>
 
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="mySlides">
-        <div class="slide-status">
-          {{ currentIndex + 1 }} / {{ imagesLength }}
+  <div @mouseover="stopSlides" @mouseleave="startSlides" id="carouselExampleCaptions" class="carousel">  
+    
+    <div class="carousel-inner">        
+      <div class="carousel-item active">           
+        <img height="500" :src="carouselItems[activeIndex].image" class="d-block w-100 img img-responsive" :alt="carouselItems[activeIndex].title">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ carouselItems[activeIndex].title }}</h5>
+          <p>{{ carouselItems[activeIndex].description }}</p>
         </div>
-        <img :src="images[currentIndex].image" style="width: 100%" />
-        <div class="text">{{ images[currentIndex].title }}</div>
-      </div>
-
-      <a class="prev" @click="swithchSlider('prev')">&#10094;</a>
-      <a class="next" @click="swithchSlider('next')">&#10095;</a>
-    </div>
-  </div>
-  <br />
-  <!-- Thumbnail Image -->
-  <div style="text-align: center">
-    <span
-      class="dot"
-      v-for="(image, index) in images"
-      :key="index"
-      @click="switchChange(index)"
-      :style="{ backgroundImage: `url(${image.image})` }"
-    ></span>
+      </div>  
+    </div>    
+    <a @click.prevent="0 == activeIndex ? activeIndex = (carouselItems.length) - 1 : activeIndex--" class="carousel-control-prev" href="#" role="button">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a @click.prevent="(carouselItems.length) - 1 == activeIndex ? activeIndex = 0 : activeIndex++" class="carousel-control-next" href="#" role="button">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div><br>
+  <div>
+    <ol class="thumnails">
+    <img @click="activeIndex = index" height="50" :style="activeIndex != index?imageFilter:''" style="cursor: pointer;" class="mx-1" v-for="(thumnail, index) in carouselItems" :key="index" :src="thumnail.image" alt="">
+  </ol>
   </div>
 </template>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Hide the images by default */
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  user-select: none;
-  background: #086c9a;
-  line-height: 42px;
-  height: 42px;
-  width: 42px;
-  border-radius: 50% !important;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Position the "prev button" to the right */
-.prev {
-  left: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* Caption text */
-.text {
-  color: #fff;
-  font-size: 29px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-.slide-status {
-  color: #fff;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0px;
-  background: #0c296ed4;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-.dot {
-  cursor: pointer;
-  height: 50px;
-  width: 50px;
-  margin: 0 2px;
-  background-color: #bbb;
+.thumnails img{
   border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.active,
-.dot:hover {
-  background-color: #717171;
-}
-
-img {
-  height: 730px;
-  object-fit: cover;
+width: 60px;
+height: 60px;
+border: 2px solid red;
 }
 </style>
