@@ -16,9 +16,8 @@
 4. Javascript
 5. Axios 
 6. Vue Router
-7. Pinia
-8. Vue 3 Composition API
-9. Netlify (Server)
+7. Vue 3 Composition API
+8. Netlify (Server)
 
 
 Live Server: 
