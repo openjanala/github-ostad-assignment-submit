@@ -1,46 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import CategoryBlogPage from "@/views/pages/CategoryBlogPage.vue";
-import SinglePostPage from "@/views/pages/SinglePostPage.vue";
-import PostsPage from "@/views/pages/PostsPage.vue";
-import SingleCategoryBLog from "@/views/pages/SingleCategoryBLog.vue";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
       component: HomeView
     },
-
     {
-      path: '/:category_name/:id',
-      name: 'CategoryBlogPage',
-      component: CategoryBlogPage,
-      props:true,
-    },
-
-    {
-      path: '/posts/:id',
-      name: 'PostsPage',
-      component: PostsPage,
-      props:true,
-    },
-
-    {
-      path: '/post/:id',
-      name: 'SinglePostPage',
-      component:SinglePostPage ,
-      props:true,
-    },
-
-    {
-      path: '/category/post/:id',
-      name: 'SingleCategoryBLog',
-      component:SingleCategoryBLog ,
-      props:true,
-    },
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AboutView.vue')
+    }
   ]
 })
 

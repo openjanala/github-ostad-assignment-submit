@@ -1,7 +1,9 @@
 <script setup>
-import PostsPage from "@/views/pages/PostsPage.vue";
+import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
-  <PostsPage />
+  <main>
+    <TheWelcome />
+  </main>
 </template>
