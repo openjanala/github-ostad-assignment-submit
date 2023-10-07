@@ -1,10 +1,11 @@
 <script setup>
-  import TopNavbar from './components/TopNavbar.vue'
+  import Layout from './components/Layouts/Main.vue';
 </script>
 
 <template>
-  <TopNavbar></TopNavbar>
-  <router-view></router-view>
+    <Layout>
+      <router-view></router-view>
+    </Layout>
 </template>
 
 <style scoped>

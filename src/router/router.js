@@ -1,54 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
-import store from "../store/loginRegister";
-import HomeComponent from '../components/Home.vue';
-import LoginComponent from '../components/Login.vue';
-import RegisterComponent from '../components/Register.vue';
-import TodosComponent from '../components/Todos.vue';
+const Dashboard = () => import("../components/Dashboard.vue");
+const Products = () => import("../components/Products.vue");
+const Product = () => import("../components/Product.vue");
+
 
 const routes = [
     {
         path : '/',
-        name : 'Home',
-        component : HomeComponent
+        name : 'dashboard',
+        component : Dashboard
     },
-
     {
-        path : '/login',
-        name : 'Login',
-        component : LoginComponent
+        path : '/products',
+        name : 'products',
+        component : Products
     },
-
     {
-        path : '/register',
-        name : 'Register',
-        component : RegisterComponent
-    },
-
-    {
-        path : '/todos',
-        name : 'Todos',
-        component : TodosComponent,
-        meta : {
-            isAuthenticate : true
-        }
+        path : '/product/:id',
+        name : 'product',
+        component : Product
     },
 ]
 
 
 const router = createRouter({
-   history : createWebHistory(),
-   routes
+    history : createWebHistory(),
+    routes
 });
-
-
-router.beforeEach((to,from,next)=>{
-    const state = store()
-    if(to.meta.isAuthenticate == true && !state.isAuthenticate){
-        next('/login')
-    }else{
-        next()
-    }
-})
 
 
 export default router;
