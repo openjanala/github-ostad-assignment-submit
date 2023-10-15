@@ -5,7 +5,7 @@
 <template>
     <div class="bg-white h-full">
         <div class="flex items-center justify-center h-full" >
-            <h1 class="font-medium text-xl">Home Page</h1>
+            <h1 class="font-medium text-xl">Home Page for Dashboard</h1>
         </div>
     </div>
 </template>
