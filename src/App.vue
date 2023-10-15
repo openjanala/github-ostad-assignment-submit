@@ -1,12 +1,13 @@
 <script setup>
-  import Layout from './components/Layouts/Main.vue';
+  import Layouts from './components/Layouts/Main.vue'
 </script>
 
 <template>
-    <Layout>
-      <!-- // router view -->
-      <router-view></router-view>
-    </Layout>
+  
+<Layouts>
+  <router-view></router-view>
+</Layouts>
+
 </template>
 
 <style scoped>

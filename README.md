@@ -1,15 +1,15 @@
 # github-ostad-assignment-submit
 
  /*
- Application Name : Simple Inventory management Website using Vue.js 3
- Description      : Technology by Vue.js 3 Component, Axios, Vuetify.
+ Application Name : Build a user details page using Vue.js 3
+ Description      : Where a user can edit his/her name, profile image, birthdate, email, description etc.
  Author           : Md. Rafiqul Islam 
  Author URI       : https://rafiqulislam.xyz/
- Published Date   : 07.10.2023
+ Published Date   : 14.10.2023
  Version          : 1.0.1
 */
 
-## Assignment No: 12  (Simple Inventory management Website using Vue.js 3):
+## Assignment No: 13  (Build a user details page using Vue.js 3. Where a user can edit his/her name, profile image, birthdate, email, description etc.):
 1. HTML
 2. CSS
 3. Tailwind css 
@@ -22,8 +22,8 @@
 
 
 Live Server: 
-https://assignment-12-inventory-management.netlify.app/
+https://assignment-13-build-user-details-page.netlify.app/
 
 Github Link: 
-https://github.com/openjanala/github-ostad-assignment-submit/tree/assignment-12
+https://github.com/openjanala/github-ostad-assignment-submit/tree/assignment-13
 

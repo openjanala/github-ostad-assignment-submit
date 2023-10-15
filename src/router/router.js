@@ -1,32 +1,35 @@
 import { createRouter, createWebHistory } from "vue-router";
-const Dashboard = () => import("../components/Dashboard.vue");
-const Products = () => import("../components/Products.vue");
-const Product = () => import("../components/Product.vue");
-
+const Home = ()=> import('../components/Home.vue')
+const Users = ()=>import('../components/Users.vue')
+const Login = ()=>import('../components/Login.vue')
+const UserDetails = ()=>import('../components/UserDetails.vue')
 
 const routes = [
     {
         path : '/',
-        name : 'dashboard',
-        component : Dashboard
+        name : 'home',
+        component : Home
     },
     {
-        path : '/products',
-        name : 'products',
-        component : Products
+        path : '/user',
+        name : 'users',
+        component : Users
     },
     {
-        path : '/product/:id',
-        name : 'product',
-        component : Product
+        path : '/login',
+        name : 'login',
+        component : Login
+    },
+    {
+        path : '/user/:id',
+        name : 'userDetails',
+        component : UserDetails
     },
 ]
-
 
 const router = createRouter({
     history : createWebHistory(),
     routes
-});
+})
 
-
-export default router;
+export default router
