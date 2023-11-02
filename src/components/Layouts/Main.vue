@@ -15,8 +15,8 @@ const sideBarisActive = ref(true);
                 
               <div class="w-full p-8 shadow-lg">
                 <h1 class="text-xl font-medium  text-gray-500 dark:text-white text-center">
-                  <span v-show="sideBarisActive">Assignment-13</span>
-                  <span v-show="!sideBarisActive">A-13</span>
+                  <span v-show="sideBarisActive">Assignment-14</span>
+                  <span v-show="!sideBarisActive">A-14</span>
                 </h1>
               </div>
 
@@ -24,6 +24,10 @@ const sideBarisActive = ref(true);
                   <li><router-link to="/" :class="{actived: $route.name == 'home'}" class="py-2 text-lg"><Icon icon="mdi:home" width="28" /><span v-if="sideBarisActive">Home</span></router-link></li>
                  
                   <li><router-link :class="{actived: $route.name == 'users' || $route.name == 'userDetails'}" :to="{name:'users'}" class="py-2 text-lg"><Icon icon="mdi:users" width="28" /><span v-if="sideBarisActive">Users</span></router-link></li>
+                  <li><router-link :class="{actived: $route.name == 'users' || $route.name == 'userDetails'}" :to="{name:'users'}" class="py-2 text-lg"><Icon icon="mdi:tag" width="28" /><span v-if="sideBarisActive">Products</span></router-link></li>
+                  <li><router-link :class="{actived: $route.name == 'users' || $route.name == 'userDetails'}" :to="{name:'users'}" class="py-2 text-lg"><Icon icon="mdi:shopping" width="28" /><span v-if="sideBarisActive">Cart</span></router-link></li>
+                  <li><router-link :class="{actived: $route.name == 'users' || $route.name == 'userDetails'}" :to="{name:'users'}" class="py-2 text-lg"><Icon icon="mdi:logout" width="28" />Logout</router-link></li>
+
               </ul>
             </div>
         </aside>
